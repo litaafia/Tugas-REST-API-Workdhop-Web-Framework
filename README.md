@@ -2,7 +2,9 @@
 Check the recent version at https://github.com/chriskacerguis/codeigniter-restserver
 
 My alternate version https://github.com/ardisaurus/old-rest-ci
-REST, singkatan bahasa Inggris dari Representational State Transfer, adalah suatu gaya arsitektur perangkat lunak untuk untuk pendistibusian sistem hipermedia seperti www.
+
+## REST, singkatan bahasa Inggris dari Representational State Transfer 
+adalah suatu gaya arsitektur perangkat lunak untuk untuk pendistibusian sistem hipermedia seperti www.
 
 Pada arsitektur REST, REST server menyediakan resources (sumber daya/data) dan REST client mengakses dan menampilkan resource tersebut untuk penggunaan selanjutnya.
 
