@@ -8,7 +8,7 @@ Pada arsitektur REST, REST server menyediakan resources (sumber daya/data) dan R
 
 Untuk memungkinkan komunikasi data antara client dan server, codeigniter membutuhkan library tambahan berupa library curl. Curl adalah sebuah program yang memungkinan kita memindai data dari atau ke sebuah server. Salah satu library curl yang dapat digunakan adalah library curl dari Phil Sturgeon yang terdapat pada folder application/libraries/REST_Controller.php.
 
-Dalam pembuatan Rest API Server ini dibutuhkan:
+## Dalam pembuatan Rest API Server ini dibutuhkan:
 
 Webserver seperti XAMPP, WAMPP, dll.
 CodeIgniter dan library Rest Server seperti Library Curl yang dibuat oleh Phil Sturgeon seperti yang telah disebutkan diatas.
