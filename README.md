@@ -3,41 +3,37 @@ Check the recent version at https://github.com/chriskacerguis/codeigniter-restse
 
 My alternate version https://github.com/ardisaurus/old-rest-ci
 
-## REST, singkatan bahasa Inggris dari Representational State Transfer 
-adalah suatu gaya arsitektur perangkat lunak untuk untuk pendistibusian sistem hipermedia seperti www.
-
+## REST
+singkatan bahasa Inggris dari Representational State Transfer
+adalah suatu gaya arsitektur perangkat lunak untuk untuk pendistibusian sistem hipermedia seperti www. 
 Pada arsitektur REST, REST server menyediakan resources (sumber daya/data) dan REST client mengakses dan menampilkan resource tersebut untuk penggunaan selanjutnya.
 
-Untuk memungkinkan komunikasi data antara client dan server, codeigniter membutuhkan library tambahan berupa library curl. Curl adalah sebuah program yang memungkinan kita memindai data dari atau ke sebuah server. Salah satu library curl yang dapat digunakan adalah library curl dari Phil Sturgeon yang terdapat pada folder application/libraries/REST_Controller.php.
+## CodeIgniter 
+merupakan aplikasi sumber terbuka yang berupa framework PHP dengan model MVC (Model, View, Controller) untuk membangun website dinamis dengan menggunakan PHP. 
+Dalam penerapan REST pada Codeigniter diperlukan beberapa library tambahan yang tidak disediakan secara default pada Codeigniter, salah satu library yang dapat digunakan adalah library dari Chris Kacerguis.
 
-## Dalam pembuatan Rest API Server ini dibutuhkan:
+# Persiapan
+Dalam pembuatan Rest API server ini diperlukan :
 
-Webserver seperti XAMPP, WAMPP, dll.
-CodeIgniter dan library Rest Server seperti Library Curl yang dibuat oleh Phil Sturgeon seperti yang telah disebutkan diatas.
-Setelah semuanya siap, kita akan masuk langkah-langkah nya, let's go!
+1. Webserver seperti Xampp, Wampp, atau lainnya.
+2. Codeigniter dan library REST server yang diperlukan
 
-JANGAN LUPA ENABLE AUTOLOAD LIBRARIES = 'database'!
+# Langkah-langkah:
+1. Konfigrasi database (saya menkonfigrasi database kontak yang berisi tabel kontak)
+2. Extract CodeIgniter dan Rest Libraries pada folder htdocs
+3. Enable autoload libraries: database
+4. Masukkan database dan username pada rest_ci/application/config/database.php
+5. Setelah itu buat file php baru pada controller di rest_ci/application/controller dengan nama kontak.php
+6. Tambahkan code fungsi get pada kontak.php
+7. Kemudian uji pada postman, pilih metode get dan masukkan link http://localhost/Tugas-REST-API-Workdhop-Web-Framework/index.php/kontak
+   setelah itu klik "Send" Maka akan muncul hasil GET semua pada database 'kontak'
+8. Tambahkan code fungsi post pada kontak.php
+9. Kemudian uji pada postman, pilih metode post dan masukkan link http://localhost/Tugas-REST-API-Workdhop-WebFramework/index.php/kontak
+   setelah itu klik "Body" pada menu dibawah address bar, pilih x-www-form-urlencoded, masukan key id dan value id yang akan diubah        misalkan id=1 diikuti value_id_nama=Creyon, 1234567890, lalu klik "Send".
+10. Kemudian, lakukan metode get untuk melihat data baru. Maka data dengan id=1 telah berubah nama dari Orayon menjadi Creyon.
+11. Tambahkan code fungsi delete pada kontak.php
+12. Kemudian uji pada postman, pilih metode post dan masukkan link http://localhost/Tugas-REST-API-WorkdhopWebFramework/index.php/kontak
+    setelah itu klik "Body" pada menu dibawah address bar, pilih x-www-form-urlencoded, masukan key id dan value id yang akan dihapus       misalkan id=1, lalu klik "Send".
+13. Kemudian, lakukan metode get untuk melihat data baru. Maka data dengan id=1 akan terhapus dalam Rest API Server.
+14. SELESAI :)
 
-Extract CodeIgniter dan Library Rest Server dan pindah ke folder htdocs supaya terdetect oleh webserver XAMPP kita. Silakan rename folder jika diperlukan
-Masukkan http://localhost/Praktek4_E41181766/index.php/rest_server pada adress bar browser kita
-Kemudian, konfigurasi database kita, sebagai contoh, kita buat database dengan nama 'kontak'
-Selanjutnya, kita buat tabel baru bernama 'telepon'
-Isi tabel 'telepon' dengan kolom 'id', 'nama', 'nomor'
-Setelah itu, buka database.php pada folder /application/config dan isikan field: 'username' = 'root' 'database' = 'kontak'
-Ok, sekarang kita masuk pada inti Rest API yaitu fungsi GET, POST, dan PUT Proses ini dilakukan menggunakan aplikasi pihak ketiga yaitu Postman for Windows
-
-Buat file php baru di folder application/controllers dengan nama kontak.php Tambahkan sebuah kode fungsi get pada kontak.php, silakan cek application/controllers/kontak.php untuk keterangan lebih lanjut.
-Sekarang kita masuk pada aplikasi Postman
-
-Untuk menguji kode yang telah dibuat buka Postman, Pilih metode GET, masukan http://localhost/Praktek4_E41181766/index.php/kontak pada address bar lalu klik "Send". Maka akan muncul hasil GET semua data pada database 'kontak'
-Kita juga bisa GET (menampilkan) salah satu data dengan menggunakan 'id', masukkan http://localhost/Praktek4_E41181766/index.php/kontak?id=1. Maka akan muncul data dengan 'id'= 1 saja.
-Tambahkan sebuah kode fungsi post pada kontak.php, silakan cek application/controllers/kontak.php untuk keterangan lebih lanjut.
-Untuk mengujinya buka Postman, pilih metode POST, masukan http://localhost/Praktek4_E41181766/index.php/kontak pada address bar, klik "Body" pada menu dibawah address bar, pilih x-www-form-urlencoded, masukan key dan value yang diperlukan (id, nama, nomor), lalu klik "Send".
-Kemudian, lakukan metode get untuk melihat data baru.
-Tambahkan sebuah kode fungsi put pada kontak.php, silakan cek application/controllers/kontak.php untuk keterangan lebih lanjut.
-Untuk mengujinya buka Postman, pilih metode PUT, masukan http://localhost/Praktek4_E41181766/index.php/kontak pada address bar, klik "Body" pada menu dibawah address bar, pilih x-www-form-urlencoded, masukan key id dan value id yang akan diubah misalkan id=1 diikuti value_id_nama=Creyon, 1234567890, lalu klik "Send".
-Kemudian, lakukan metode get untuk melihat data baru. Maka data dengan id=1 telah berubah nama dari Orayon menjadi Creyon.
-Tambahkan sebuah kode fungsi delete pada kontak.php, silakan cek application/controllers/kontak.php untuk keterangan lebih lanjut.
-Untuk mengujinya buka Postman, pilih metode PUT, masukan http://localhost/Praktek4_E41181766/index.php/kontak pada address bar, klik "Body" pada menu dibawah address bar, pilih x-www-form-urlencoded, masukan key id dan value id yang akan dihapus misalkan id=1, lalu klik "Send".
-Kemudian, lakukan metode get untuk melihat data baru. Maka data dengan id=1 akan terhapus dalam Rest API Server.
-SELESAI!
